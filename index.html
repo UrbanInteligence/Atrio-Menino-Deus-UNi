@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Átrio Boutique Haus - Urban Company</title>
+    <style>
+        /* RESET E VARIÁVEIS PREMIUM */
+        :root {
+            --bg-main: #0a0a0a;
+            --border-color: rgba(244, 178, 102, 0.15); /* Cobre sutil */
+            --color-text: #ffffff;
+            --color-muted: #a39892;    
+            --color-gold: #f4b266;     /* Ouro Sunset */
+            --color-orange: #ff7640;   /* Cobre Vibrante */
+            --color-green: #00ff87;    /* Verde Esmeralda Digital */
+            --color-blue-unimed: #00995c; /* Tom Unimed Corporativo */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--color-text);
+            line-height: 1.4;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* HERO CLEAN & DIRECT */
+        .hero {
+            min-height: 45vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-content { max-width: 800px; }
+
+        .hero-tag {
+            color: var(--color-orange);
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            margin-bottom: 10px;
+            background: linear-gradient(180deg, #ffffff 0%, var(--color-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p { font-size: 1.15rem; color: var(--color-muted); font-weight: 300; }
+
+        /* CONTAINER INFINITO (SEM CARDS FECHADOS) */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        /* SEÇÃO DE FLUXO CONTÍNUO */
+        .viabilidade-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+            align-items: center;
+        }
+
+        .section-info { max-width: 450px; }
+
+        .section-tag-viabilidade {
+            font-size: 0.75rem;
+            color: var(--color-orange);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        h2.section-title { font-size: 2rem; color: #ffffff; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 15px; }
+        
+        .section-desc { font-size: 0.95rem; color: var(--color-muted); font-weight: 300; }
+
+        /* HIGHLIGHT EXCLUSIVO PARA OS NÚMEROS (FOCO DO INVESTIDOR) */
+        .investor-data-display {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* Destaque principal numérico */
+        .main-number-callout {
+            text-align: right;
+        }
+
+        .giant-number {
+            font-size: 4.2rem;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -2px;
+            display: block;
+        }
+        
+        /* Gradientes para chamar atenção imediata */
+        .giant-number.gold { background: linear-gradient(135deg, #ffffff, var(--color-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .giant-number.orange { background: linear-gradient(135deg, #ffffff, var(--color-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .giant-number.green { background: linear-gradient(135deg, #00ff87, #00b35e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .giant-number.unimed { background: linear-gradient(135deg, #ffffff, var(--color-blue-unimed)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .number-label {
+            font-size: 0.85rem;
+            color: var(--color-orange);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* Lista de Dados Corporativa */
+        .data-rows-compact {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .data-item-inline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .data-item-inline:last-child { border-bottom: none; }
+
+        .item-label { font-size: 0.95rem; color: var(--color-muted); }
+        .item-value { font-size: 1.1rem; font-weight: 700; color: #ffffff; }
+        .item-value.green { color: var(--color-green); }
+        .item-value.unimed-tag { color: #ffffff; background: rgba(0, 153, 92, 0.15); border: 1px solid var(--color-blue-unimed); padding: 2px 8px; border-radius: 4px; font-size: 0.85rem; text-transform: uppercase; }
+
+        /* BALLOON MULTI-NÚMEROS SPLIT (Para a seção de demanda ativa) */
+        .split-numbers {
+            display: flex;
+            justify-content: flex-end;
+            gap: 35px;
+        }
+
+        /* GALERIA INTEGRADA */
+        .gallery-section { padding: 60px 0; border-bottom: 1px solid var(--border-color); }
+        .gallery-container { display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; }
+        .gallery-wrapper { position: relative; border-radius: 6px; overflow: hidden; min-height: 340px; background: #121212; border: 1px solid rgba(255,255,255,0.05); }
+        .gallery-stack { display: flex; flex-direction: column; gap: 20px; }
+
+        /* CALL TO ACTION */
+        .cta-container { text-align: center; padding: 80px 20px; }
+        .cta-container p { color: var(--color-muted); margin-bottom: 25px; font-size: 1rem; }
+        
+        .btn-investor {
+            display: inline-block;
+            background: #ffffff;
+            color: #000000;
+            padding: 16px 40px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: background 0.2s ease;
+        }
+        .btn-investor:hover { background: var(--color-gold); }
+
+        footer { padding: 40px 20px; text-align: center; color: #444; font-size: 0.8rem; }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.4rem; }
+            .viabilidade-section { grid-template-columns: 1fr; gap: 30px; padding: 40px 0; }
+            .main-number-callout { text-align: left; }
+            .split-numbers { justify-content: flex-start; gap: 25px; }
+            .giant-number { font-size: 3.2rem; }
+            .gallery-container { grid-template-columns: 1fr; }
+            .gallery-wrapper { min-height: 240px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">Urban Company • Relatório de Performance</span>
+            <h1>Átrio Boutique Haus</h1>
+            <p>Viabilidade Computacional e Engenharia Financeira de Cenários.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        
+        <!-- FLUXO 01: DEMANDA & PARCERIA UNIMED -->
+        <section class="viabilidade-section">
+            <div class="section-info">
+                <span class="section-tag-viabilidade">Validação de Demanda</span>
+                <h2 class="section-title">01. Ativo de Alta Liquidez</h2>
+                <p class="section-desc">Localizado na Rua Barbedo, 303 (Menino Deus). Hub de saúde estratégico a apenas 3 minutos do Hospital Mãe de Deus, potencializado pela **parceria oficial corporativa com a Unimed**, assegurando fluxo orgânico permanente de inquilinos de alto padrão.</p>
+            </div>
+            
+            <div class="investor-data-display">
+                <div class="split-numbers">
+                    <div class="main-number-callout">
+                        <span class="giant-number orange">96/100</span>
+                        <span class="number-label">Walk Score</span>
+                    </div>
+                    <div class="main-number-callout">
+                        <span class="giant-number unimed">Ativa</span>
+                        <span class="number-label">Parceria Unimed</span>
+                    </div>
+                </div>
+                <div class="data-rows-compact">
+                    <div class="data-item-inline">
+                        <span class="item-label">Canal de Captação Exclusivo</span>
+                        <span class="item-value unimed-tag">Ecossistema Unimed</span>
+                    </div>
+                    <div class="data-item-inline">
+                        <span class="item-label">Modelo de Locação</span>
+                        <span class="item-value" style="color: var(--color-gold);">Digital Flexível (Short Stay)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLUXO 02: MARGEM DE AQUISIÇÃO -->
+        <section class="viabilidade-section">
+            <div class="section-info">
+                <span class="section-tag-viabilidade">Assimetria de Entrada</span>
+                <h2 class="section-title">02. Margem de Segurança</h2>
+                <p class="section-desc">A captura de valor ocorre diretamente na originação. O lote de oportunidade garante aquisição abaixo do valor de tabela de abertura do lançamento oficial.</p>
+            </div>
+            
+            <div class="investor-data-display">
+                <div class="main-number-callout">
+                    <span class="giant-number green">R$ 26.390</span>
+                    <span class="number-label">Ganho Imediato no Pré-Lançamento</span>
+                </div>
+                <div class="data-rows-compact">
+                    <div class="data-item-inline">
+                        <span class="item-label">Tabela de Lançamento Regular</span>
+                        <span class="item-value">R$ 310.681,97</span>
+                    </div>
+                    <div class="data-item-inline">
+                        <span class="item-label">Lote Cortesia Investidor</span>
+                        <span class="item-value" style="color: var(--color-gold);">R$ 284.291,00</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLUXO 03: EVOLUÇÃO PATRIMONIAL -->
+        <section class="viabilidade-section">
+            <div class="section-info">
+                <span class="section-tag-viabilidade">Evolução do Ativo</span>
+                <h2 class="section-title">03. Curva de Valorização</h2>
+                <p class="section-desc">Cenário de valorização patrimonial linear estimado ao longo dos 36 meses de execução de obra, performando ganho composto sobre o aporte inicial.</p>
+            </div>
+            
+            <div class="investor-data-display">
+                <div class="main-number-callout">
+                    <span class="giant-number gold">R$ 436.485</span>
+                    <span class="number-label">Projeção de Valor na Entrega (Ano 3)</span>
+                </div>
+                <div class="data-rows-compact">
+                    <div class="data-item-inline">
+                        <span class="item-label">Evolução Ano 1 (Obra)</span>
+                        <span class="item-value">R$ 347.963,80</span>
+                    </div>
+                    <div class="data-item-inline">
+                        <span class="item-label">Evolução Ano 2 (Obra)</span>
+                        <span class="item-value">R$ 389.719,46</span>
+                    </div>
+                    <div class="data-item-inline">
+                        <span class="item-label">Lucro Projetado em Obra</span>
+                        <span class="item-value green">+ R$ 125.803,83</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALERIA ARQUITETÔNICA INTEGRADA -->
+        <section class="gallery-section">
+            <div class="gallery-container">
+                <div class="gallery-wrapper">
+                    <a href="https://ibb.co/1GQTr8HM" target="_blank">
+                        <img src="https://i.ibb.co/HT4qtnmC/Fachada.png" alt="Fachada" style="width:100%; height:100%; object-fit:cover; display:block;">
+                    </a>
+                </div>
+                <div class="gallery-stack">
+                    <div class="gallery-wrapper" style="min-height:160px; flex:1;">
+                        <a href="https://ibb.co/PzggZtz6" target="_blank">
+                            <img src="https://i.ibb.co/8499DX47/TRIO-Urban-Company-11.png" alt="Piscina Rooftop" style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </a>
+                    </div>
+                    <div class="gallery-wrapper" style="min-height:160px; flex:1;">
+                        <a href="https://ibb.co/YFQvYj1r" target="_blank">
+                            <img src="https://i.ibb.co/DHW3sKvq/TRIO-Urban-Company-9.png" alt="Implantação Urbana" style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FECHAMENTO CONVERSÃO -->
+        <div class="cta-container">
+            <p>Gostaria de analisar o plano estratégico de ocupação corporativa Unimed e o fluxo de caixa deste lote?</p>
+            <a href="https://wa.me/5551996563871?text=Ol%C3%A1%20R%C3%A9gis%2C%20Gostaria%20de%20receber%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20%C3%81trio%20Boutique%20Haus" target="_blank" class="btn-investor">
+                Contatar Régis Teixeira
+            </a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Urban Company • Inteligência de Negócios Imobiliários.</p>
+    </footer>
+
+</body>
+</html>
